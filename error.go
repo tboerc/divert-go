@@ -11,11 +11,15 @@ import (
 )
 
 var (
-	errQueueLength = fmt.Errorf("Queue length is not correct, Max: %v, Min: %v", QueueLengthMax, QueueLengthMin)
-	errQueueTime   = fmt.Errorf("Queue time is not correct, Max: %v, Min: %v", QueueTimeMax, QueueTimeMin)
-	errQueueSize   = fmt.Errorf("Queue size is not correct, Max: %v, Min: %v", QueueSizeMax, QueueSizeMin)
-	errQueueParam  = errors.New("VersionMajor and VersionMinor only can be used in function GetParam")
-	errPriority    = fmt.Errorf("Priority is not Correct, Max: %v, Min: %v", PriorityHighest, PriorityLowest)
+	errQueueLength          = fmt.Errorf("queue length is not correct, Max: %v, Min: %v", QueueLengthMax, QueueLengthMin)
+	errQueueTime            = fmt.Errorf("queue time is not correct, Max: %v, Min: %v", QueueTimeMax, QueueTimeMin)
+	errQueueSize            = fmt.Errorf("queue size is not correct, Max: %v, Min: %v", QueueSizeMax, QueueSizeMin)
+	errQueueParam           = errors.New("versionMajor and VersionMinor only can be used in function GetParam")
+	errPriority             = fmt.Errorf("priority is not Correct, Max: %v, Min: %v", PriorityHighest, PriorityLowest)
+	errNotOpen              = errors.New("handle isn't open")
+	errWindDivertStop       = errors.New("error: could not stop windivert service")
+	errWindDivertNotRunning = errors.New("error: windivert service is not running")
+	errServiceConnect       = errors.New("error: could not connect to service control manager")
 )
 
 const (

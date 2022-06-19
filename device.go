@@ -3,8 +3,6 @@
 
 package divert
 
-type CtlCode uint32
-
 const (
 	METHOD_IN_DIRECT  = 1
 	METHOD_OUT_DIRECT = 2
@@ -27,6 +25,8 @@ const (
 	ioCtlShutdown   = CtlCode(((FILE_DEVICE_NETWORK) << 16) | ((FILE_READ_DATA | FILE_WRITE_DATA) << 14) | ((0x927) << 2) | (METHOD_IN_DIRECT))
 )
 
+type CtlCode uint32
+
 func (c CtlCode) String() string {
 	switch c {
 	case ioCtlInitialize:
@@ -48,8 +48,8 @@ func (c CtlCode) String() string {
 	}
 }
 
-type ioCtl struct {
-	b1, b2, b3, b4 uint32
+type IoCtl struct {
+	B1, B2, B3, B4 uint32
 }
 
 type recv struct {
@@ -60,17 +60,6 @@ type recv struct {
 type send struct {
 	Addr    uint64
 	AddrLen uint64
-}
-
-type initialize struct {
-	Layer    uint32
-	Priority uint32
-	Flags    uint64
-}
-
-type startup struct {
-	Flags uint64
-	_     uint64
 }
 
 type shutdown struct {

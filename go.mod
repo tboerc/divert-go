@@ -1,4 +1,4 @@
-module github.com/imgk/divert-go
+module github.com/tboerc/divert-go
 
 go 1.18
 
